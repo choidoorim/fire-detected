@@ -28,7 +28,7 @@
 
 <hr>
 
-### Sensor Main Code
+### :nut_and_bolt: Sensor Main Code
 #### 📝 PinMode 지정과 센서 값 읽어오기 위한 Code
 ```cs
 int initMQ4(void) {
@@ -46,7 +46,7 @@ int initMQ4(void) {
     return 0;
 }
 ```
-#### 센서 값 읽어오는 Code
+#### 📝 센서 값 읽어오는 Code
 ```cs
 int readMQ4(int nAdcChannel1,int nAdcChannel2)
 {
@@ -149,49 +149,49 @@ digitalWrite(CS_MCP3208_1, 1);
 return nAdcValue;
 }
 ```
-### Application Main Code
+### :calling: Application Main Code
 #### 📝 Raspberry Pi 에 연결된 센서 값을 실시간으로 읽어오기 위한 Code
 ```java
 private void doRxCmd(Bundle data){
-        int len = data.getInt(NetManager.RX_LENGHT);
-        if ( len < 5)
-            return;
-        byte[] dataArr = data.getByteArray(NetManager.RX_DATA);
+    int len = data.getInt(NetManager.RX_LENGHT);
+    if ( len < 5)
+        return;
+    byte[] dataArr = data.getByteArray(NetManager.RX_DATA);
 
-        if (unSignedByteToInt(dataArr[PKT_INDEX_STX]) != PKT_STX)
-        {
-            Log.d(TAG,"doRxCmd - PKT_STX fail");
-            return ;
-        }
-        Log.d(TAG,"dataArr[PKT_INDEX_CMD] : " + unSignedByteToInt(dataArr[PKT_INDEX_CMD]));
-        Log.d(TAG,"CMD_SENSOR_RES : " + CMD_SENSOR_RES);
-        if (unSignedByteToInt(dataArr[PKT_INDEX_CMD]) != CMD_SENSOR_RES)
-        {
-            Log.d(TAG,"doRxCmd - CMD_SENSOR_RES fail");
-            return ;
-        }
-        if (unSignedByteToInt(dataArr[PKT_INDEX_ETX]) != PKT_ETX)
-        {
-            Log.d(TAG,"doRxCmd - PKT_ETX fail");
-            return;
-        }
+    if (unSignedByteToInt(dataArr[PKT_INDEX_STX]) != PKT_STX)
+    {
+        Log.d(TAG,"doRxCmd - PKT_STX fail");
+        return ;
+    }
+    Log.d(TAG,"dataArr[PKT_INDEX_CMD] : " + unSignedByteToInt(dataArr[PKT_INDEX_CMD]));
+    Log.d(TAG,"CMD_SENSOR_RES : " + CMD_SENSOR_RES);
+    if (unSignedByteToInt(dataArr[PKT_INDEX_CMD]) != CMD_SENSOR_RES)
+    {
+        Log.d(TAG,"doRxCmd - CMD_SENSOR_RES fail");
+        return ;
+    }
+    if (unSignedByteToInt(dataArr[PKT_INDEX_ETX]) != PKT_ETX)
+    {
+        Log.d(TAG,"doRxCmd - PKT_ETX fail");
+        return;
+    }
 
-// SensingVal query
-// nSensingVal1 = dataArr[PKT_INDEX_DATA];
-nSensingVal1 = unSignedByteToInt(dataArr[PKT_INDEX_DATA1]);
-nSensingVal2 = unSignedByteToInt(dataArr[PKT_INDEX_DATA2]);
-
-        Log.d(TAG, "nSensingVal1" + nSensingVal1);
-        Log.d(TAG, "nSensingVal2" + nSensingVal2);
-
-        nSensingVal = (nSensingVal2*256)+nSensingVal1;
-        Log.d(TAG, "nSensingVal" + nSensingVal);
-
-// displaySensingVal(nSensingVal1);
-displaySensingVal(nSensingVal);
+    // SensingVal query
+    // nSensingVal1 = dataArr[PKT_INDEX_DATA];
+    nSensingVal1 = unSignedByteToInt(dataArr[PKT_INDEX_DATA1]);
+    nSensingVal2 = unSignedByteToInt(dataArr[PKT_INDEX_DATA2]);
+    
+            Log.d(TAG, "nSensingVal1" + nSensingVal1);
+            Log.d(TAG, "nSensingVal2" + nSensingVal2);
+    
+            nSensingVal = (nSensingVal2*256)+nSensingVal1;
+            Log.d(TAG, "nSensingVal" + nSensingVal);
+    
+    // displaySensingVal(nSensingVal1);
+    displaySensingVal(nSensingVal);
 }
 ```
-#### 📝 실시간 스트리밍
+#### 📝 실시간 스트리밍 Code
 - ServerIP 변수에 IP 주소가 들어가도록 구현
 ```java
 @Override
