@@ -1,8 +1,7 @@
-# 🔥 fire-detected System (딥러닝을 활용한 화재감지 시스템)
+# 🔥 fire-detected System
+## 딥러닝을 활용한 화재감지 시스템
 ## :trophy: 프라임 경진대회 탑 엔지니어링 부문 대상 수상 :trophy:
-
 ## 🔗 시연영상 : https://youtu.be/1-66k5U4veQ
-
 ## 프로젝트 구상도
 ![1](https://user-images.githubusercontent.com/63203480/133270209-cd8e6308-2c40-44ba-b5f2-4317361e1b27.png)
 
