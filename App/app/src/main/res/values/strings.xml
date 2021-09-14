@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">RaspNetworkClient</string>
+    <string name="current_temp">Current Temp:</string>
+    <string name="action_settings">Settings</string>
+    <string name="ServerIP">Stop</string>
+    <string name="title_activity_server_set">ServerSetActivity</string>
+
+</resources>
