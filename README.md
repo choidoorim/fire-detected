@@ -92,7 +92,7 @@ while(1)
                 printf("smoke detection from sensor one");
                 
         }
-		if(nAdcValuel2>1000)
+	if(nAdcValuel2>1000)
         {
                 printf("smoke detection from sensor two");
 
